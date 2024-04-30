@@ -35,7 +35,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: auto; /* Mueve la navegación hacia abajo */
 }
 
-/* Estilo para los elementos de la navegación */
+/* Estilo para la lista de la navegación */
 .navegacion__lista li {
     display: block; /* Cambiamos a bloque para que cada elemento esté en una línea */
     margin-bottom: 10px; /* Añadimos un poco de espacio entre los elementos */
@@ -76,6 +76,7 @@ body{
 }
 .partidos img{
     width: 200px;
+    height: auto;
     display: flex;
 }
 
@@ -159,13 +160,13 @@ body{
     justify-content: center;
 }
 .catalogo__muestras{
-    display: flex;
+
     justify-content: center;
     text-align: center;
 }
 .catalogo__muestras img{
-    display: inline-block;
-    justify-content: center;
+
+    flex-wrap:wrap ;
     height: 220px;
     border-radius: 5%;
     box-shadow: 5px 12px 18px black;
@@ -194,7 +195,7 @@ body{
 /*main sponsors*/
 .grid-contenedor{
     display: grid;
-    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
     grid-template-rows: auto 0.2fr auto;
     grid-template-areas: 
     "encabezado encabezado encabezado encabezado"
@@ -209,16 +210,17 @@ body{
     grid-area: sponsors;
     
 }
+
 .pie{
     grid-area: pie;
 }
 
 .sponsors img{
-    
+    display: flex; /* no puedo lograr que las imagenes ocupen todas las columnas*/
     height: 220px;
     border-radius: 5%;
     box-shadow: 5px 12px 18px black;
-
+    grid-column: span 4; /* Las imágenes ocuparán todas las 4 columnas */
 }
 /*main inscribirse*/
 .tabla tr th{
@@ -242,7 +244,7 @@ body{
     align-content: space-around;
 }
 .pie__redes a img{
-    width: 500px;
+    width: 300px;
 }
 .pie a img{
     display: flex;
@@ -270,3 +272,79 @@ body{
 
 /* media queries*/
 
+
+
+@media (max-width:768px) {
+       /* encabezado */
+    .encabezado__subtitulo{
+        display: none;
+    }
+    /* index */
+    .partidos__texto{
+        display: none;
+    }
+    /* Indumentaria */
+    .catalogo__muestras{
+        display: none;
+    }
+
+    .grid-contenedor{ /* sponsors */
+
+        grid-template-columns: 0.5fr 0.5fr;
+        grid-template-rows: 0.2fr 1fr 0.2fr;
+        grid-template-areas: 
+        "encabezado encabezado"
+        "sponsors   sponsors"
+        "pie        pie"
+        ;
+    }
+    /* footer */
+    .pie__redes a img{
+        width: 40px;
+    }
+    .pie__logos img{
+        display: flex;
+        align-content: space-around;
+        height: 70px;
+    }
+}
+
+@media (max-width:576px) {
+    /* encabezado */
+    .encabezado__subtitulo{ 
+        display: none; /* lo borro porque no da el lugar */
+    }
+    /* index */
+    .partidos img{
+        width: 20%;
+        display: flex;
+    }
+    /* Indumentaria */
+    .catalogo__muestras{
+        display: none;
+    }
+
+
+        /* sponsors */
+
+    .grid-contenedor{
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1fr 0.2fr;
+        grid-template-areas: 
+        "encabezado"
+        "sponsors"
+        "pie"
+        ;
+    }
+
+ /* footer */
+        .pie__redes a img{
+            width: 40px;
+        }
+        .pie__logos img{
+            display: flex;
+            align-content: space-around;
+            height: 70px;
+    }
+}
