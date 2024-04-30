@@ -5,77 +5,82 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Estilo para el header */
-.up {
+.encabezado {
     display: flex; /* Usamos flexbox para controlar la disposición de los elementos internos */
     align-items: center; /* Centramos verticalmente los elementos */
-    background-image: url('./imagenes/fondos/rastafriki.jpg');
+    background-image: url('../imagenes/fondos/rastafriki.jpg');
     background-repeat: initial;
     padding: 10px; /* Añadimos un poco de espacio alrededor de los elementos */
 }
 
 /* Estilo para la imagen */
-.escudofondorojo {
+.encabezado__logo {
     width: 200px;
 }
 
 /* Estilo para el título h1 */
-.tit1 {
+.encabezado__titulo {
     color: #ffffff;
     flex-grow: 1; /* Permite que el título h1 ocupe todo el espacio restante */
     text-align: center; /* Centra el texto horizontalmente */
 }
 
 /* Estilo para el título h2 */
-.tit2 {
+.encabezado__subtitulo {
     color: #ffffff;
 }
 
 /* Estilo para la navegación */
-.navi {
+.navegacion__lista {
     margin-top: auto; /* Mueve la navegación hacia abajo */
 }
 
 /* Estilo para los elementos de la navegación */
-.navi li {
+.navegacion__lista li {
     display: block; /* Cambiamos a bloque para que cada elemento esté en una línea */
     margin-bottom: 10px; /* Añadimos un poco de espacio entre los elementos */
 }
 /* Estilo para los elementos de la navegación */
-.navi a {
+.navegacion__lista a {
     color: #ffffff;
     padding: 10px;
     text-decoration: none; /* Quitamos el subrayado del enlace */
 }
 /* Estilo para el hover */
-.navi a:hover {
+.navegacion__lista a:hover {
     color: #ff0000; /* Cambia el color al pasar el cursor sobre el enlace */
 }
 body{
     background-color: #e8e8e8;
 }
 /*main home*/
-.home{
+.principal__foto{
     width: 100%;
 }
-.tit{
+.principal__titulo{
     display: flex;
     justify-content: center;
 }
-p{
+.principal__texto{
     display: flex;
     justify-content: center;
 }
 /*aside home*/
-.next img{
-    width: 200px;
-    display: flex;
-}
-.next{
+.partidos{
     display: flex;
 
 }
+.partidos__titulo {
+    display: flex;
+    justify-content: center;
+}
+.partidos img{
+    width: 200px;
+    display: flex;
+}
+
 /*section home*/
-.jdls {
+.goleadores__imagen {
     display: block; /* Cambiado a display block */
     margin: 0 auto; /* Centrar horizontalmente */
     max-width: 100%; /* Para asegurarse de que la imagen no exceda su contenedor */
@@ -83,23 +88,29 @@ p{
 .goleadores {
     text-align: center; /* Para centrar el texto y las imágenes dentro del contenedor */
 }
+.goleadores__titulo{
+    display: flex;
+    justify-content: center;
+}
+.goleadores__subtitulo{
+    display: flex;
+    justify-content: center;
+}
 /* Estilo para los contenedores de puestos */
-.puestos {
+.goleadores__puestos {
     display: flex;
     justify-content: center; /* Centrar horizontalmente los contenedores de puestos */
     margin-top: 20px; /* Espacio superior para separar del contenido superior */
 }
 
 /* Estilo para las imágenes dentro de los contenedores de puestos */
-.puestos img {
+.goleadores__puestos img {
     max-width: 100%; /* Para asegurarse de que las imágenes no excedan su contenedor */
     height: auto; /* Mantener la proporción de aspecto */
 }
 
 /* Estilo para los contenedores de puestos individuales */
-.primerpuesto,
-.segundopuesto,
-.tercerpuesto {
+.goleadores__puestos-item {
     margin: 0 10px; /* Espacio horizontal entre los contenedores de puestos */
     max-width: 100%; /* Para asegurarse de que los contenedores no excedan su contenedor padre */
     text-align: center; /* Centrar el contenido dentro de los contenedores */
@@ -121,6 +132,8 @@ p{
     margin: 20px;
 }
 /* Estilo para el carrusel */
+
+
 .carousel-inner img {
     width: 100%; /* Hacer que las imágenes ocupen todo el ancho del carrusel */
     height: auto; /* Mantener la proporción de aspecto */
@@ -132,20 +145,25 @@ p{
 }
 
 /* Estilo para las secciones de galería */
-.galerias section {
+.catalogo__juego,
+.catalogo__entreno,
+.catalogo__social {
     margin-bottom: 20px; /* Espaciado entre cada sección de galería */
 }
-/* Estilo para las imágenes dentro de la sección de la galería */
-.galerias img {
-    width: auto; /* Hacer que las imágenes ocupen todo el ancho disponible */
-    height: 250px; /* Mantener la proporción de aspecto */
-}
+
 /*main indumentaria*/
-.muestras{
+
+.catalogo{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
-.muestras img{
+.catalogo__muestras{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.catalogo__muestras img{
     display: inline-block;
     justify-content: center;
     height: 220px;
@@ -153,18 +171,54 @@ p{
     box-shadow: 5px 12px 18px black;
     margin: 20px;
 }
+/* Estilo para las secciones de galería */
+.catalogo__juego__galerias,
+.catalogo__entreno__galerias,
+.catalogo__social__galerias {
+    display: inline-block;
+    width: auto; /* Hacer que las imágenes ocupen todo el ancho disponible */
+    max-height: 220px;
+}
 
-.galerias img{
-height: 220px;}
+
+
+.catalogo__juego__galerias img,
+.catalogo__entreno__galerias img,
+.catalogo__social__galerias img {
+    display: inline-block;
+    width: auto;
+    max-height: 250px; /* Mantener la proporción de aspecto */
+}
+
 
 /*main sponsors*/
+.grid-contenedor{
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-rows: auto 0.2fr auto;
+    grid-template-areas: 
+    "encabezado encabezado encabezado encabezado"
+    "sponsors   sponsors   sponsors   sponsors"
+    "pie        pie        pie        pie"
+    ;
+}
+.encabezado{
+    grid-area: encabezado;
+}
+.sponsors{
+    grid-area: sponsors;
+    
+}
+.pie{
+    grid-area: pie;
+}
+
 .sponsors img{
-        display: inline-block;
-        justify-content: center;
-        height: 220px;
-        border-radius: 5%;
-        box-shadow: 5px 12px 18px black;
-        margin: 20px;
+    
+    height: 220px;
+    border-radius: 5%;
+    box-shadow: 5px 12px 18px black;
+
 }
 /*main inscribirse*/
 .tabla tr th{
@@ -174,7 +228,8 @@ height: 220px;}
     border: 1px solid black;
 }
 /*footer*/
-.pie p{
+.pie__subtitulo, .pie__texto{
+    text-align: center;
     background-color: #2ed32e;
 }
 .pie a{
@@ -182,11 +237,11 @@ height: 220px;}
     text-align: center;
     margin: auto;
 }
-.redes{
+.pie__redes{
     display: flex;
     align-content: space-around;
 }
-.pie redes a img{
+.pie__redes a img{
     width: 500px;
 }
 .pie a img{
@@ -197,10 +252,10 @@ height: 220px;}
     
 }
 .pie{
-    background-image: url('./imagenes/fondos/rastafriki.jpg');
+    background-image: url('../imagenes/fondos/rastafriki.jpg');
     background-repeat: initial;
 }
-.imgfoot img{
+.pie__logos img{
     display: flex;
     display: inline-block;
     margin: auto;
@@ -208,9 +263,10 @@ height: 220px;}
     height: 200px;
     
 }
-.imgfoot{
+.pie__logos{
     display: flex;
     align-content: space-around;
 }
 
 /* media queries*/
+
